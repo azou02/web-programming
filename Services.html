@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link type = "text/css" href = "styling.css" rel = "stylesheet">
+        
+        <style>
+            .food {
+                float: left;
+                width: 70%;
+                padding: 30px 70px;
+                box-sizing: border-box;
+            }
+            .food h1, .food p {
+                color: black;
+            }
+            .img {
+                float: right;
+                width: 50%
+                height: auto;
+                box-sizing: border-box;
+                class: center;
+            }
+            
+            @media(max-width: 600px) {
+                .food {
+                    float: none;
+                }
+                .img {
+                    float: none;
+                }
+                .center {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            
+            .form .different label {
+                display: inline;
+            }
+            
+            .form {
+                border-top: 1px black solid;
+            }
+            
+            
+            
+        </style>
+    </head>
+    <body>
+        
+        <header id = "header"> 
+            <div class = "container">
+                <h1> Welcome! </h1>
+                
+            </div>
+        </header>
+        
+        <nav id = "navbar">
+            <div class = "container">
+                <ul>
+                    <li> <a href = "#" > Home </a> </li>
+                    <li> <a href = "#" > Contact Us </a> </li>
+                    
+                    
+                </ul>
+                
+        </nav>
+        
+        <br>
+        
+        <img src = "Sushi.jpg" width = "300" class = "center">
+        
+        <section class = "food center">
+            <h1> Sushi Made Fresh For You </h1>
+            <p> Caught and raised in the freshwaters off the coast of Osaka, our sushi is cut and prepared on the spot by our 5 star chefs. Coupled with rice and your choice of cutlet, our bento box is guaranteed to make your mouth water.
+                    
+        </section>
+        
+        <div class = "clr">
+        </div>
+        
+        <form class = "form">
+            <div class = "container">
+            <h1> Order now! </h1>
+            <p> Place your bento pickup order by filling out the form below: </p>
+            
+            <div class = "form-group">
+                <label> Name (First and Last): </label>
+                <input type = "text" name = "name">            
+            </div>
+            <div class = "form-group">
+                <label> Phone #: </label>
+                <input type = "text" name = "phone">
+            </div>
+            <div class = "form-group">
+                <label> Email: </label>
+                <input type = "text" name = "email">
+            </div>
+            <div class = "form-group">
+                <label> Size: </label>
+                <input type = "radio" name = "size" value = "small"> Small
+                <input type = "radio" name = "size" value = "medium"> Medium
+                <input type = "radio" name = "size" value = "large"> Large
+            </div>
+            <div class = "form-group">
+                <label> Type of Fish: </label>
+                <select name = "fish">
+                    <option value = "salmon"> Salmon </option>
+                    <option value = "tuna"> Tuna </option>
+                    <option value = "eel"> Eel </option>
+                    <option value = "ahi"> Ahi (Yellowtail) </option>
+                    <option value = "ebi"> Ebi (Sweet Shrimp) </option>
+                    <option value = "halibut"> Halibut </option>
+                    <option value = "squid"> Squid </option>
+                    <option value = "octopus"> Octopus </option>
+                </select>
+            </div>
+            <div class = "form-group">
+                <label> Type of Cutlet: </label>
+                <input type = "radio" name = "cutlet" value = "pork"> Pork
+                <input type = "radio" name = "cutlet" value = "medium"> Chicken
+                <input type = "radio" name = "cutlet" value = "veggie"> Vegetarian
+            </div>
+            <div class = "form-group">
+                <label class> Add Ons: </label>
+                <input type = "checkbox" name = "bonito" value = "bonito"> Bonito Flakes
+                <input type = "checkbox" name = "edamame" value = "edamame"> Edamame
+                <input type = "checkbox" name = "seaweed" value = "seaweed"> Hijiki Seaweed
+                <input type = "checkbox" name = "wasabi" value = "wasabi"> Wasabi
+                <input type = "checkbox" name = "ginger" value = "ginger"> Ginger
+                <input type = "checkbox" name = "soy" value = "soy"> Soy Sauce
+            
+            </div>
+            
+            <div class = "form-group">
+                <label> Pick Up Time: </label>
+                <input type = "text" name = "time">
+            </div>
+            <div class = "form-group">
+                <label> Any Dietary Restrictions? </label>
+                <textarea name = "message" rows = "3"> </textarea>
+            </div>
+            
+            <input type = "reset" value = "Cancel">
+            <input class = "button" type = "submit" value = "Submit" name = "">
+            
+            
+            </div>
+        </form>
+        
+        <footer id = "footer">
+            <div class = "container">
+                <p> Copyright &copy; 2022 Website Name </p>
+            </div>
+        </footer>
+        
+    </body>
+</html>
