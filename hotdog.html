@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> Joe's </title>
+        <link type = "text/css" href = "style_hotdog.css" rel = "stylesheet">
+    </head>
+    <body>
+        <header id = "header"> 
+            <div class = "container">
+                <h1> Joe's Hotdog Stand </h1>
+            
+            </div>
+        </header>
+        
+        <section id = "intro">
+            <div class = "container">
+                <ul class = "menu">
+                    <h1> Our Menu: </h1>
+                    <li> Joe's Special Hotdog: $3.75 </li> <br>
+                    <li> Joe's French Fries: $2.00 </li> <br>
+                    <li> Soda: $1.80 </li>
+                </ul>
+            </div>
+            
+        </section>
+        
+        <section id = "display">
+            <div class = "container">
+                <ul class = "order">
+                    <h1> Your order today: </h1>
+                    <li id = "hotdog"> </li> <br>
+                    <li id = "fries"> </li> <br>
+                    <li id = "sodas"> </li>
+                </ul>
+            
+            
+            </div>
+        </section>
+        
+        <section id = "totals">
+            <div class = "container">
+                <ul class = "money">
+                    <h1> Your charges today: </h1>
+                    <li id = "subtotal"> </li> <br>
+                    <li id = "discount"> </li> <br>
+                    <li id = "tax"> </li> <br>
+                    <li id = "final_total"> </li>
+                </ul>
+            
+            </div>
+        </section>
+        
+        <script type = "text/javascript">
+            var num_hotdog = 0;
+            var num_fries = 0;
+            var num_sodas = 0;
+            var hotdog_total = 0.00;
+            var fries_total = 0.00;
+            var sodas_total = 0.00;
+            var subtotal = 0.00;
+            var discount = 0.00;
+            var tax = 0.00;
+            var final_total = 0.00;
+            function hotdog() {
+                num_hotdog = prompt("How many hotdogs would you like to buy?", "");
+                document.getElementById("hotdog").innerHTML = "Joe's Special Hotdogs: " + num_hotdog;
+                if (num_hotdog > 0) {
+                    hotdog_total = num_hotdog * 3.75;
+                }
+            }
+            hotdog();
+            
+            function fries() {
+                num_fries = prompt("How many fries would you like to buy?", "");
+                document.getElementById("fries").innerHTML = "Joe's Frech Fries: " + num_fries;
+                if (num_fries > 0) {
+                    fries_total = num_fries * 2.00;
+                }
+            }
+            fries();
+            function sodas() {
+                num_sodas = prompt("How many sodas would you like to buy?", "");
+                document.getElementById("sodas").innerHTML = "Sodas: " + num_sodas;
+                if (num_sodas > 0) {
+                    sodas_total = num_sodas * 1.80;
+                }
+            }
+            sodas();
+            
+            subtotal = hotdog_total + fries_total + sodas_total;
+            if (subtotal >= 20.00) {
+                discount = subtotal * 0.10;
+                subtotal = subtotal - discount;
+                discount = parseFloat(discount).toFixed(2);
+                subtotal = parseFloat(subtotal).toFixed(2);
+                document.getElementById("discount").innerHTML = "Discount: $" + discount;
+                document.getElementById("subtotal").innerHTML = "Subtotal: $" + subtotal;
+            } else {
+                document.getElementById("discount").innerHTML = "Discount: N/A";
+                document.getElementById("subtotal").innerHTML = "Subtotal: $" + subtotal;
+            }
+            
+            tax = subtotal * .0625;
+            tax = parseFloat(tax).toFixed(2);
+            final_total = +subtotal + +tax;
+            final_total = parseFloat(final_total).toFixed(2);
+            document.getElementById("tax").innerHTML = "Tax: $" + tax;
+            document.getElementById("final_total").innerHTML = "Final Total: $" + final_total;
+            
+        </script>
+        
+    </body>
+</html>

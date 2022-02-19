@@ -1,0 +1,85 @@
+body {
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0;
+    background-color: #cc3333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+#header {
+    background-color: #333;
+}
+
+#header h1 {
+    color: #fff;
+    font-size: 40px;
+    
+}
+
+#intro {
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+#intro h1 {
+    color: yellow;
+    font-size: 25px;
+}
+
+#intro .menu {
+    list-style: none;
+}
+
+#intro li {
+    padding-left: 20px;
+    font-size: 20px;
+    color: #fff;
+}
+
+#display {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#display h1 {
+    color: yellow;
+    font-size: 25px;
+}
+
+#display .order {
+    list-style: none;
+}
+
+#display li {
+    padding-left: 20px;
+    font-size: 20px;
+    color: #fff;
+}
+
+#totals {
+    float: right;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+#totals h1 {
+    color: yellow;
+    font-size: 25px;
+}
+
+#totals .money {
+    list-style: none;
+}
+
+#totals li {
+    padding-left: 20px;
+    font-size: 20px;
+    color: #fff;
+}
