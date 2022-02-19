@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type = "text/css" href = "style.css" ?>
+<song_list>
+    <opening> Aaron's Song List </opening>
+    <song>
+        <artist>
+            One Direction
+        </artist>
+        <title>
+            Fool's Gold
+        </title>
+        <genre>
+            Pop, Alternative
+        </genre>
+        <year>
+            2014
+        </year>
+    </song>
+    <song>
+        <artist>
+            One Direction
+        </artist>
+        <title>
+            Night Changes
+        </title>
+        <genre>
+            Pop, Alternative
+        </genre>
+        <year>
+            2014
+        </year>
+    </song>
+    <song>
+        <artist>
+            One Direction
+        </artist>
+        <title>
+            What Makes You Beautiful
+        </title>
+        <genre>
+            Pop
+        </genre>
+        <year>
+            2011
+        </year>
+    </song>
+    <song>
+        <artist>
+            One Direction
+        </artist>
+        <title>
+            Story of My Life
+        </title>
+        <genre>
+            Pop
+        </genre>
+        <year>
+            2013
+        </year>
+    </song>
+    <song>
+        <artist>
+            Bruno Mars
+        </artist>
+        <title>
+            Count on Me
+        </title>
+        <genre>
+            Folk Tropical
+        </genre>
+        <year>
+            2010
+        </year>
+    </song>
+    <song>
+        <artist>
+            Bruno Mars
+        </artist>
+        <title>
+            That's What I Like
+        </title>
+        <genre>
+            Hip Hop, Pop
+        </genre>
+        <year>
+            2017
+        </year>
+    </song>
+    <song>
+        <artist>
+            Bruno Mars
+        </artist>
+        <title>
+            24k Magic
+        </title>
+        <genre>
+            Funk, Pop
+        </genre>
+        <year>
+            2016
+        </year>
+    </song>
+    <song>
+        <artist>
+            Eric Nam
+        </artist>
+        <title>
+            I Don't Know You Anymore
+        </title>
+        <genre>
+            Pop
+        </genre>
+        <year>
+            2022
+        </year>
+    </song>
+    <song>
+        <artist>
+            Eric Nam
+        </artist>
+        <title>
+            Runaway
+        </title>
+        <genre>
+            K-Pop
+        </genre>
+        <year>
+            2019
+        </year>
+    </song>
+    <song>
+        <artist>
+            Eric Nam
+        </artist>
+        <title>
+            Love Die Young
+        </title>
+        <genre>
+            Pop, Ballad
+        </genre>
+        <year>
+            2019
+        </year>
+    </song>
+</song_list>
