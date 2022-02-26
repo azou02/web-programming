@@ -1,0 +1,65 @@
+body {
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0;
+    background-color: #ADD8E6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+#header {
+    background-color: #333;
+}
+
+#header h1 {
+    color: #fff;
+    font-size: 40px;
+    
+}
+
+#numbers {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#numbers h1 {
+    color: #333;
+    font-size: 25px;
+}
+
+#numbers .lotto {
+    list-style: none;
+}
+
+#numbers li {
+    padding-left: 20px;
+    font-size: 20px;
+    color: #fff;
+}
+
+#results {
+    float: right;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+#results h1 {
+    color: #333;
+    font-size: 25px;
+}
+
+#results .win {
+    list-style: none;
+}
+
+#results li {
+    padding-left: 20px;
+    font-size: 20px;
+    color: #fff;
+}

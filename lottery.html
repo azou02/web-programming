@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> Lucky for Life </title>
+        <link type = "text/css" href = "lottery_style.css" rel = "stylesheet">
+    </head>
+    <body>
+        <header id = "header"> 
+            <div class = "container">
+                <h1> Lucky for Life </h1>
+            
+            </div>
+        </header>
+        
+        <section id = "numbers">
+            <div class = "container">
+                <ul class = "lotto">
+                    <h1> Your numbers today: </h1>
+                    <li id = "unsorted_pick"> </li> <br>
+                    <li id = "sorted_pick"> </li> <br>
+                    <li id = "my_lucky"> </li>
+                </ul>
+            
+            
+            </div>
+        </section>
+        
+        <section id = "results">
+            <div class = "container">
+                <ul class = "win">
+                    <h1> Your results today: </h1>
+                    <li id = "winning_numbers"> </li> <br>
+                    <li id = "winning_ball"> </li> <br>
+                    <li id = "num_matches"> </li> <br>
+                    <li id = "ball_match"> </li> <br>
+                    <li id = "payout"> </li>
+                </ul>
+            
+            </div>
+        </section>        
+        
+        <script type = "text/javascript">
+            var lot_numbers = new Array(5);
+            for (let i = 0; i < lot_numbers.length; i++) {
+                lot_numbers[i] = Math.floor(Math.random() * 48) + 1;
+                for (let j = 0; j < lot_numbers.length; j++) {
+                    if (i == j) {
+                        continue;
+                    } else if (lot_numbers[i] == lot_numbers[j]) {
+                        lot_numbers[i] = Math.floor(Math.random() * 48) + 1;
+                    }
+                }
+            }
+            document.getElementById("unsorted_pick").innerHTML = "Your pick before sorting: " + lot_numbers.toString();
+            
+            var sort_numbers = lot_numbers.sort(function(a, b){return a - b});
+            document.getElementById("sorted_pick").innerHTML = "Your pick after sorting: " + sort_numbers.toString();
+            
+            var your_lucky_ball = Math.floor(Math.random() * 18) + 1;
+            document.getElementById("my_lucky").innerHTML = "Your lucky ball value: " + your_lucky_ball;
+            
+            var win_numbers = new Array(12, 15, 24, 35, 48);
+            document.getElementById("winning_numbers").innerHTML = "Today's winning numbers are: " + win_numbers.toString();
+            
+            var win_ball = 3;
+            document.getElementById("winning_ball").innerHTML = "Today's lucky ball is: " + win_ball;
+            
+            var counter = 0;
+            for (let i = 0; i < lot_numbers.length; i++) {
+                for (let j = 0; j < lot_numbers.length; j++) {
+                    if (sort_numbers[i] == win_numbers[j]) {
+                        counter++;
+                    }
+                }
+            }
+            document.getElementById("num_matches").innerHTML = "You had " + counter + " winning numbers!";
+            
+            var match = false;
+            if (win_ball == your_lucky_ball) {
+                match = true;
+                document.getElementById("ball_match").innerHTML = "Lucky ball number matched!"
+            } else {
+                match = false;
+                document.getElementById("ball_match").innerHTML = "Lucky ball number did not match"
+            }
+            
+            if (counter == 5 && match == true) {
+                document.getElementById("payout").innerHTML = "You earned $7000 a WEEK for LIFE!";
+            } else if (counter == 5 && match == false) {
+                document.getElementById("payout").innerHTML = "You earned $25000 a YEAR for LIFE!";
+            } else if (counter == 4 && match == true) {
+                document.getElementById("payout").innerHTML = "You earned $5000!";
+            } else if (counter == 4 && match == false) {
+                document.getElementById("payout").innerHTML = "You earned $200!";
+            } else if (counter == 3 && match == true) {
+                document.getElementById("payout").innerHTML = "You earned $150!";
+            } else if (counter == 3 && match == false) {
+                document.getElementById("payout").innerHTML = "You earned $20!";
+            } else if (counter == 2 && match == true) {
+                document.getElementById("payout").innerHTML = "You earned $25!";
+            } else if (counter == 2 && match == false) {
+                document.getElementById("payout").innerHTML = "You earned $3!";
+            } else if (counter == 1 && match == true) {
+                document.getElementById("payout").innerHTML = "You earned $6!";
+            } else if (counter == 1 && match == false) {
+                document.getElementById("payout").innerHTML = "No earnings :(";
+            } else if (counter == 0 && match == true) {
+                document.getElementById("payout").innerHTML = "You earned $4!";
+            } else if (counter == 0 && match == false) {
+                document.getElementById("payout").innerHTML = "No earnings :(";
+            }
+            
+        </script>
+            
+    </body>
+
+</html>
