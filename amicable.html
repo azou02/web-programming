@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> Amicable Numbers </title>
+    </head>
+    <body>
+        
+        
+        <header id = "header"> 
+            <div class = "container">
+                <h1> Amicable Numbers </h1>    
+            </div>
+        </header>
+        
+        <input id = "first_number" placeholder = "First Number">
+        <br> <br>
+        <input id = "second_number" placeholder = "Second Number">
+        <br><br>
+        <button type ="button" onclick = "find_factors()" name="button"> Submit </button>
+        
+        <div id = "result">
+            <div class = "container">
+                <h2> Your Result: </h2>    
+                <p id = "answer"> </p>
+            </div>
+        </div>
+        
+        <div id = "factors">
+            <div class = "container">
+                <h2> Factors for your Numbers: </h2> 
+                <h3 class = "first_list"> First Number: </h3>   
+                <p id = "first_factors"> </p>
+                <h3 class = "first_list"> Second Number: </h3>   
+                <p id = "second_factors"> </p>
+            </div>
+        </div>
+        
+        <script type = "text/javascript">
+            var factors_one = new Array();
+            var factors_two = new Array();
+            var counter_one = 0;
+            var counter_two = 0;
+            var sum_one = 0;
+            var sum_two = 0;
+            
+            function find_factors() {
+                
+                var first = document.getElementById("first_number").value;
+                var second = document.getElementById("second_number").value;
+                
+                for (let i = 1; i < first / 2 + 1; i++) {
+                    var bool = is_a_factor(i,first);
+                    if (bool == true) {
+                        factors_one[counter_one] = i;
+                        counter_one++;
+                    } else {
+                        continue;
+                    }
+                }
+                
+                for (let j = 1; j < second / 2 + 1; j++) {
+                    var bool = is_a_factor(j,second);
+                    if (bool == true) {
+                        factors_two[counter_two] = j;
+                        counter_two++;
+                    } else {
+                        continue;
+                    }
+                }
+                
+                var same = sum(first, second);
+                
+                print(first, second, same);
+                
+            }
+            
+            function is_a_factor(x,y) {
+                if (y % x == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            
+            function sum(first, second) {
+                for (let i = 0; i < factors_one.length; i++) {
+                    sum_one += factors_one[i];
+                }
+                for (let j = 0; j < factors_two.length; j++) {
+                    sum_two += factors_two[j];
+                }
+                if (sum_one == second && sum_two == first) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            
+            function print(first, second, alike) {
+                document.getElementById("first_factors").innerHTML = "The factors for your first number are: " + factors_one.toString();
+                document.getElementById("second_factors").innerHTML = "The factors for your second number are: " + factors_two.toString();
+                if (alike == true) {
+                    document.getElementById("answer").innerHTML = "The numbers: " + first + " and " + second + " are amicable";
+                } else {
+                    document.getElementById("answer").innerHTML = "The numbers: " + first + " and " + second + " are not amicable";
+                }
+            }
+            
+        </script>    
+        
+    </body>
+</html>
