@@ -1,0 +1,63 @@
+[
+    {
+        "artist" : "One Direction",
+        "title" : "Fool's Gold",
+        "genre" : ["Pop", "Alternative"],
+        "year" : 2014
+    },
+    {
+        "artist" : "One Direction",
+        "title" : "Night Changes",
+        "genre" : ["Pop", "Alternative"],
+        "year" : 2014
+    },
+    {
+        "artist" : "One Direction",
+        "title" : "What Makes You Beautiful",
+        "genre" : ["Pop"],
+        "year" : 2011
+    },
+    {
+        "artist" : "One Direction",
+        "title" : "Story of My Life",
+        "genre" : ["Pop"],
+        "year" : 2013
+    },
+    {
+        "artist" : "Bruno Mars",
+        "title" : "Count on Me",
+        "genre" : ["Folk Tropical"],
+        "year" : 2010
+    },
+    {
+        "artist" : "Bruno Mars",
+        "title" : "That's What I Like",
+        "genre" : ["Hip Hop", "Pop"],
+        "year" : 2017
+    },
+    {
+        "artist" : "Bruno Mars",
+        "title" : "24k Magic",
+        "genre" : ["Funk", "Pop"],
+        "year" : 2016
+    },
+    {
+        "artist" : "Eric Nam",
+        "title" : "I Don't Know You Anymore",
+        "genre" : ["Pop"],
+        "year" : 2022
+    },
+    {
+        "artist" : "Eric Nam",
+        "title" : "Runaway",
+        "genre" : ["K-Pop"],
+        "year" : 2019
+    },
+    {
+        "artist" : "Eric Nam",
+        "title" : "Love Die Young",
+        "genre" : ["Pop", "Ballad"],
+        "year" : 2019
+    }
+    
+]

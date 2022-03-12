@@ -1,0 +1,44 @@
+body {
+    background-color: #333;
+    padding-left: 50px;
+    padding-top: 20px;
+    color: white;
+}
+
+opening {
+    color: #fff;
+    font-size: 50px;
+}
+
+song {
+    display: block;
+    padding: 15px 0px;
+}
+
+artist {
+    display: block;
+    color: yellow;
+    font-size: 20px;
+    padding-bottom: 3px;
+}
+
+title {
+    display: block;
+    color: red;
+    font-size: 20px;
+    padding-bottom: 3px;
+}
+
+genre {
+    display: block;
+    color: #fff;
+    padding-left: 15px;
+    padding-bottom: 3px;
+}
+
+year {
+    display: block;
+    color: #fff;
+    padding-left: 15px;
+    padding-bottom: 3px;
+}

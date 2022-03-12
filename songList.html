@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> JSON Song List </title>
+        <link type = "text/css" href = "song_list_style.css" rel = "stylesheet">
+    </head>
+    <body>
+        <header id = "header"> 
+            <div class = "container">
+                <h1> JSON Song List </h1>    
+            </div>
+        </header>
+        
+        <div id = "part2">
+            <div class = "container">
+                <h2> Part 2: Serialize and Display </h2>    
+                <p id = "two"> </p>
+            </div>
+        </div>
+        
+        <div id = "part3">
+            <div class = "container">
+                <h2> Part 3: User Friendly Display </h2>    
+                <p id = "three"> </p>
+            </div>
+        </div>
+        
+        <div id = "part4">
+            <div class = "container">
+                <h2> Part 4: Filter the Data </h2>    
+            </div>
+        
+        
+            <form class = "form">
+                <div class = "genres">
+                    <label> Type of Genre: </label>
+                    <select id = "song_genre">
+                        <option value = "Pop"> Pop </option>
+                        <option value = "Alternative"> Alternative </option>
+                        <option value = "Folk"> Folk </option>
+                        <option value = "Hiphop"> Hip Hop </option>
+                        <option value = "Funk"> Funk </option>
+                        <option value = "K-Pop"> K-pop </option>
+                        <option value = "Ballad"> Ballad </option>
+                    </select>
+                </div>
+                
+                <button type ="button" onclick = "filter()" name="button"> Filter </button>
+            </form>
+            
+            <p id = "four"> </p>
+        
+        </div>
+        
+        <script type="text/javascript">
+            var songList = 
+            [
+                {
+                    "artist" : "One Direction",
+                    "title" : "Fool's Gold",
+                    "genre" : ["Pop", "Alternative"],
+                    "year" : 2014
+                },
+                {
+                    "artist" : "One Direction",
+                    "title" : "Night Changes",
+                    "genre" : ["Pop", "Alternative"],
+                    "year" : 2014
+                },
+                {
+                    "artist" : "One Direction",
+                    "title" : "What Makes You Beautiful",
+                    "genre" : ["Pop"],
+                    "year" : 2011
+                },
+                {
+                    "artist" : "One Direction",
+                    "title" : "Story of My Life",
+                    "genre" : ["Pop"],
+                    "year" : 2013
+                },
+                {
+                    "artist" : "Bruno Mars",
+                    "title" : "Count on Me",
+                    "genre" : ["Folk"],
+                    "year" : 2010
+                },
+                {
+                    "artist" : "Bruno Mars",
+                    "title" : "That's What I Like",
+                    "genre" : ["Hiphop", "Pop"],
+                    "year" : 2017
+                },
+                {
+                    "artist" : "Bruno Mars",
+                    "title" : "24k Magic",
+                    "genre" : ["Funk", "Pop"],
+                    "year" : 2016
+                },
+                {
+                    "artist" : "Eric Nam",
+                    "title" : "I Don't Know You Anymore",
+                    "genre" : ["Pop"],
+                    "year" : 2022
+                },
+                {
+                    "artist" : "Eric Nam",
+                    "title" : "Runaway",
+                    "genre" : ["K-Pop"],
+                    "year" : 2019
+                },
+                {
+                    "artist" : "Eric Nam",
+                    "title" : "Love Die Young",
+                    "genre" : ["Pop", "Ballad"],
+                    "year" : 2019
+                }
+                
+            ]
+            
+            function make_string() {
+                var output = "";
+                for (let i = 0; i < songList.length; i++) {
+                    var string = JSON.stringify(songList[i]);
+                    output += string + "<br>";
+                }
+                document.getElementById("two").innerHTML = output;
+            }
+            
+            make_string();
+            
+            function friendly_display(songList) {
+                var output = "";
+                for (let i = 0; i < songList.length; i++) {
+                    output += songList[i].title + "<br>";
+                    output += "Artist: " + songList[i].artist + "<br>";
+                    output += "Genre: ";
+                    for (let j = 0; j < songList[i].genre.length; j++) {
+                        output += songList[i].genre[j] + ", ";
+                    }
+                    output += "<br>";
+                    output += "Year: " + songList[i].year + "<br>";
+                    output += "<br>";
+                    
+                }
+                document.getElementById("three").innerHTML = output;
+            }
+            
+            friendly_display(songList);
+            
+            function filter() {
+                var output = "";
+                var answer = document.getElementById("song_genre").value;
+                for (let i = 0; i < songList.length; i++) {
+                    for (let j = 0; j < songList[i].genre.length; j++) {
+                        if (songList[i].genre[j] == answer) {
+                            output += songList[i].title + "<br>";
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+                document.getElementById("four").innerHTML = output;
+            }
+            
+        </script>
+        
+    </body>
+</html>
