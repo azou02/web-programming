@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> API Fun </title>
+        <link type = "text/css" href = "weather_style.css" rel = "stylesheet">
+        <script>
+            function loadData() {
+                request = new XMLHttpRequest();
+    			document.getElementById("data").innerHTML;
+                
+                request.open("GET", "https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0", true);
+                
+                request.onreadystatechange = function() {
+     
+    				if (request.readyState == 4 && request.status == 200) {
+    
+    					console.log("5 - response received");
+    					result = request.responseText;
+    					weather = JSON.parse(result);
+    					
+    					document.getElementById("data").innerHTML = JSON.stringify(weather); 
+    					
+    				}
+    				else if (request.readyState == 4 && request.status != 200) {
+    
+    					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+    
+    				}
+    
+    				else if (request.readyState == 3) {
+    
+    					document.getElementById("data").innerHTML = "Too soon!  Try again";
+    
+    				}
+    
+    			}
+    		// Step 4: fire off the HTTP request
+    			request.send();
+    		}
+            
+            res = fetch("https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0")
+    			.then (res => res.text())
+    			.then (data => 
+    				{
+    					data = JSON.parse(data)
+    					document.getElementById("fetched").innerHTML = JSON.stringify(data); 
+    				})
+            
+        </script>
+    </head>
+    <body>
+        
+        <h1> API Fun </h1>
+        <div id = "data">
+        </div>
+        <br>
+        <div id = "fetched">
+        </div>
+        
+        <ul> Questions </ul>
+        <li> The API I selected measures the weather forecast as certain time intervals. For example, it measures the wind speed and direction, transparency in the sky, amount of cloud cover, and others.</li>
+        <li> I found my API on one of the websites recommended on the class website: https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/</li>
+        <li> XMLHttpRequest requests data from the web server. onreadystatechange is an event for XMLHttpRequest object that is triggered when there is a change in the readyState value (between 0 and 4 to indicate the status of the request). Finally, send finally sends the request. </li>
+        <li> This API would be extremely useful for a weather station or any sort of News Channel that reports on the daily weather.</li>
+        
+        
+        
+        <script language="javascript">
+    		loadData();
+    	</script>
+        
+    </body>
+</html>
