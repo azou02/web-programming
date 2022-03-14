@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> Cupcake Shop </title>
+        <link type = "text/css" href = "styles.css" rel = "stylesheet">
+        <style> 
+            body {
+                font-size: 20px;
+            }
+            
+            #header h1 {
+                font-family: SnappyDresser;
+                padding-top: 10px;
+            }
+            #catering_info {
+                padding-bottom: 10px;
+                background-color: #FFF0F5;
+                border: 3px solid black;
+            }
+            
+            #catering_info h1 {
+                padding-top: 10px;
+                font-family: SnappyDresser;
+            }
+            
+            #catering_info p {
+                line-height: 25px;
+            }
+        
+            #catering_info ul {
+                padding-bottom: 5px;
+            }
+            
+            #catering_info li {
+                padding-bottom: 5px;
+            }
+            
+            form h1 {
+                font-size: 1.5em;
+                text-align: center;
+                padding-top: 10px;
+                font-family: SnappyDresser;
+                color: #D2691E;
+            }
+            
+            form {
+                border-top: 1px solid black;
+                padding-bottom: 5px;
+                background-color: #FFEBCD
+            }
+            
+            form .form-group {
+                padding-bottom: 10px;
+                text-align: center;
+                color: #D2691E;
+            }
+            
+            .container {
+                width: 90%;
+                margin: auto;
+                overflow: hidden;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <header id="header">
+          <ul id="header-list">
+            <div id="logo">
+              <a href="index.html">Logo or Pic</a>
+            </div>
+            <div id="header-items">
+              <li><a href="menu.html">Menu</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="order.html">Order</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="catering.html">Catering</a></li>
+              <li><a href="reviews.html">Reviews</a></li>
+            </div>
+          </ul>
+        </header>
+        
+        <nav id = "navbar">
+            <div class = "container">
+                <ul>
+                    
+                    
+                </ul>
+                
+        </nav>
+        
+        <section id = "catering_info">
+            <div class = "container">
+                <h1> Make Your Special Day One You Can't Forget </h1> <br>
+                <p> Allow us to make your next special event truly one to remember!
+                    <br>
+                    <br>
+                    Pamper your guests with our gourmet cupcakes specially desgined to serve any occasion! Not only will you get to enjoy our hand-made, freshly designed cupcakes, but we also provide a sampling of our new baked treats planned to hit our stores in 2023. For more information about location and processing, please fill out the form below or give us a call.
+                    <br>   
+                    <br>         
+                </p>
+                <ul> Henry's Cupcakes caters for the following events: </ul>
+                    <li> Birthday Parties </li>
+                    <li> Weddings </li>
+                    <li> Anniversaries </li>
+                    <li> Private Events </li>
+                    <li> Graduations </li>
+                    <li> Holidays </li>
+                    <li> Baby Showers </li>
+                <br>
+                <p> Please note that Henry's Cupcakes only delivers within the state of Massachusetts, and that all catering requests must be made at least 3 business days in advance.
+            </div>
+            
+        </section>
+        
+        <form class = "form">
+            <div class = "container">
+                <h1> Book Us For An Event Now! </h1>
+                <div class = "form-group">
+                    <label> Name (First and Last): </label>
+                    <input type = "text" name = "name">
+                </div>
+                <div class = "form-group">
+                    <label> Phone #: </label>
+                    <input type = "text" name = "phone">
+                </div>
+                <div class = "form-group">
+                    <label> Email: </label>
+                    <input type = "text" name = "email">
+                </div>
+                <div class = "form-group">
+                    <label> Catering Size: </label>
+                    <br>
+                    <input type = "radio" name = "size" value = "50"> Original 50 Cupcake Set
+                    <br>
+                    <input type = "radio" name = "size" value = "100"> Special 100 Cupcake Feast
+                    <br>
+                    <input type = "radio" name = "size" value = "large"> Deluxe 150 Cupcake Materpiece
+                </div>
+                <div class = "form-group">
+                    <label> Location: </label>
+                    <input type = "text" name = "location">
+                </div>
+                <div class = "form-group">
+                    <label> Time: </label>
+                    <input type = "text" name = "time">
+                </div>
+                <div class = "form-group">
+                    <input type = "reset" value = "Cancel">
+                    <input class = "button" type = "submit" value = "Submit" name = "">   
+                </div>
+            </div>
+        </form>
+        
+        <footer id="footer">
+          <ul id="footer-list">
+            <li class="footer-item">Home</li>
+            <li class="footer-item">Contact</li>
+            <li class="footer-item">Careers</li>
+            <li class="footer-item">Policies</li>
+            <li class="footer-item">Privacy</li>
+          </ul>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="index.js"></script>
+        
+    </body>
+</html>
