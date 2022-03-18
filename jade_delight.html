@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jade Delight</title>
+
+<style>
+
+	label {
+		display: inline-block;
+		width: 110px;
+	}
+
+	body {
+		background-color: #333;
+		color: #fff;
+	}
+
+</style>
+
+</head>
+
+<body>
+<script>
+
+function MenuItem(name, cost)
+{
+	this.name = name;
+	this.cost=cost;
+}
+
+menuItems = new Array(
+	new MenuItem("Chicken Chop Suey", 4.5),
+	new MenuItem("Sweet and Sour Pork", 6.25),
+	new MenuItem("Shrimp Lo Mein", 6.25),
+	new MenuItem("Moo Shi Chicken", 7.5),
+	new MenuItem("Fried Rice", 2.85)
+);
+
+
+//makes the drop down select menu with specified ranges
+function makeSelect(name, minRange, maxRange)
+{
+	var t= "";
+	t = "<select name='" + name + "' size='1' onchange = 'updateTotal()''>";
+	for (j=minRange; j<=maxRange; j++)
+	   t += "<option>" + j + "</option>";
+	t+= "</select>"; 
+	return t;
+}
+
+function td(content, className="")
+{
+	return "<td class = '" + className + "'>" + content + "</td>";
+}
+	
+</script>
+
+<h1>Jade Delight</h1>
+<form>
+
+<p class="userInfo"><label>First Name:</label> <input type="text"  name='fname' id = "first_name" /></p>
+<p class="userInfo"><label>Last Name*:</label>  <input type="text"  name='lname' id = "last_name" /></p>
+<p class="userInfo address" id = streets><label>Street*:</label> <input type="text" name='street' id = "street" /></p>
+<p class="userInfo address" id = cities><label>City*:</label> <input type="text" name='city' id = "city" /></p>
+<p class="userInfo"><label>Phone*:</label> <input type="text"  name='phone' id = "phone_number" /></p>
+<p> 
+	<input type="radio"  name="p_or_d" value = "pickup" checked="checked" id = "pickup" onchange = "hide()" />Pickup  
+	<input type="radio"  name='p_or_d' value = 'delivery' id = "delivery" onchange = "show()"/>
+	Delivery
+</p>
+<table border="0" cellpadding="3">
+  <tr>
+    <th>Select Item</th>
+    <th>Item Name</th>
+    <th>Cost Each</th>
+    <th>Total Cost</th>
+  </tr>
+<script>
+
+//fills out the columns of the table
+  var s = "";
+  for (i=0; i< menuItems.length; i++)
+  {
+	  s += "<tr>";
+	  s += td(makeSelect("quan" + i, 0, 10),"selectQuantity");
+	  s += td(menuItems[i].name, "itemName");
+	  s += td("$" +menuItems[i].cost.toFixed(2), "cost");
+	  s += td("$<input type='text' name='cost'/>", "totalCost");
+	  s+= "</tr>";
+  }
+  
+  document.writeln(s);
+  
+</script>
+
+<!--
+MY ADDED CODE
+-->
+<script>
+	
+	//Loads the page without the street and city bars for pickup
+	window.addEventListener("load", hide());
+
+	function validate() {
+		var counter = 0;
+		//Validates that the last name is filled out
+		if (document.getElementById("last_name").value == "") {
+			alert("Last Name Needed");
+			return false;
+		}
+		//Validates that the phone number entered has 7 or 10 numbers
+		var phone_string = document.getElementById("phone_number").value;
+		//Counts the number of actual numbers in the input
+		for (let i = 0; i < phone_string.length; i++) {
+			if (phone_string[i] == "(" || phone_string[i] == ")" || phone_string[i] == "-" || phone_string[i] == " ") {
+				continue;
+			}
+			if (isNaN(phone_string[i]) == false) {
+				counter++;
+			}
+		}
+		if (counter != 7 && counter != 10) {
+			alert("Invalid Phone Number Entered");
+			return false;
+		}
+		at_least_one();
+	}
+	
+	//Calculates the actual time depending on pickup or delivery
+	function ready_time() {
+		var actual_time = new Date();
+		var hours = actual_time.getHours();
+		var your_time = "";
+		//Determines whether customer wants pickup or delivery from radio button
+		var choice = document.querySelector('input[name="p_or_d"]:checked').value;
+		if (choice == "pickup") {
+			var minutes = actual_time.getMinutes() + 15;
+			successful_order();
+		} else {
+			var minutes = actual_time.getMinutes() + 30;
+			street_city();
+		}
+		//Puts the time in valid format
+		if (minutes >= 60) {
+			minutes -= 60;
+			hours++;
+		}
+		if (minutes < 10) {
+			minutes = "0" + minutes;
+		}
+		if (hours == 24) {
+			hours -= 24;
+			hours = "0" + hours;
+		}
+		your_time = "Your order will be ready at: " + hours + ":" + minutes;
+	}
+	
+	//Checks to see if street and city are filled out if delivery was chosen
+	function street_city() {
+		if (document.getElementById("street").value == "") {
+			alert("Street Needed");
+			return false;
+		}
+		if (document.getElementById("city").value == "") {
+			alert("City Needed");
+			return false;
+		} else {
+			successful_order();
+		}
+	}
+	
+	//If not form invalidation, successful order!
+	function successful_order() {
+		alert("Thank you for your order!");
+		new_tab();
+	}
+	
+	//Opens a new tab on successful form input
+	function new_tab() {
+		newPage();
+		window.open(newPage, "_blank");
+	}
+	
+	//Shows the city and street bars when delivery is picked
+	function show() {
+		document.getElementById("streets").style.display = "block";
+		document.getElementById("cities").style.display = "block";
+	}
+	
+	//Hides the city and street bars when pickup is chosen
+	function hide() {
+		document.getElementById("streets").style.display = "none";
+		document.getElementById("cities").style.display = "none";
+	}
+	
+	//Updates the associated costs when quantity of items are changed
+	function updateTotal() {
+		var costTotal = 0;
+		var individual_amounts = document.getElementsByName("cost");
+		
+		//Gets the updated quantities for different dishes
+		for (let i = 0; i < menuItems.length; i++) {
+			var getValue = document.getElementsByName("quan" + i);
+			var quantity = getValue[0].options[getValue[0].selectedIndex].innerHTML;
+			
+			//Updates the total price of each item
+			var totalPrice = menuItems[i].cost * quantity;
+			individual_amounts[i].value = parseFloat(totalPrice).toFixed(2);
+			costTotal += totalPrice;
+		}
+		
+		var subtotal = document.getElementById("subtotal");
+		var tax = document.getElementById("tax");
+		var total = document.getElementById("total");
+		
+		//Caluclates the subtotal, tax, and total values
+		subtotal.value = parseFloat(costTotal).toFixed(2);
+		tax.value = parseFloat(subtotal.value * 0.0625).toFixed(2);
+		total.value = parseFloat(parseFloat(subtotal.value) + parseFloat(tax.value)).toFixed(2);
+	}
+	
+	//Checks to make sure that at least one item was ordered
+	function at_least_one() {
+		var counter = 0;
+		for (let i = 0; i < menuItems.length; i++) {
+			var getValue = document.getElementsByName("quan" + i);
+			var quantity = getValue[0].options[getValue[0].selectedIndex].innerHTML;
+			if (quantity == 0) {
+				counter++;
+			}
+		}
+		if (counter > 4) {
+			alert("Must order at least one item!")
+		} else {
+			ready_time();
+		}
+	}
+	function newPage() {
+		var newPage = window.open("", "new", "width = 300, height = 500");
+		newPage.document.write("<ul> <h1> Your order summary from Jade Garden today: </h1> </ul>");
+		var item_list = ["Chicken Chop Suey", "Sweet and Sour Pork", "Shrimp Lo Mein", "Moo Shi Chicken", "Fried Rice"];
+		
+		var subtotal = document.getElementById("subtotal").value;
+		var tax = document.getElementById("tax").value;
+		var total = document.getElementById("total").value;
+		
+		for (let i = 0; i < menuItems.length; i++) {
+			var getValue = document.getElementsByName("quan" + i);
+			var quantity = getValue[0].options[getValue[0].selectedIndex].innerHTML;
+			var totalPrice = menuItems[i].cost * quantity;
+		newPage.document.write(item_list[i] + ": " + quantity + "<br>" + "Total: " + totalPrice + "<br>");
+		}
+		newPage.document.write("<br>" + "Subtotal: " + subtotal);
+		newPage.document.write("<br>");
+		newPage.document.write("Tax: " + tax);
+		newPage.document.write("<br>");
+		newPage.document.write("Total: " + total);
+		newPage.document.write("<br><br>");
+		
+		var actual_time = new Date();
+		var hours = actual_time.getHours();
+		var your_time = "";
+		//Determines whether customer wants pickup or delivery from radio button
+		var choice = document.querySelector('input[name="p_or_d"]:checked').value;
+		if (choice == "pickup") {
+			var minutes = actual_time.getMinutes() + 15;
+		} else {
+			var minutes = actual_time.getMinutes() + 30;
+		}
+		//Puts the time in valid format
+		if (minutes >= 60) {
+			minutes -= 60;
+			hours++;
+		}
+		if (minutes < 10) {
+			minutes = "0" + minutes;
+		}
+		if (hours == 24) {
+			hours -= 24;
+			hours = "0" + hours;
+		}
+		your_time = "Your order will be ready at: " + hours + ":" + minutes;
+		newPage.document.write(your_time);
+	}
+
+</script>
+
+</table>
+<p class="subtotal totalSection"><label>Subtotal:</label> 
+   $ <input type="text"  name='subtotal' id="subtotal" />
+</p>
+<p class="tax totalSection"><label>Mass tax 6.25%:</label>
+  $ <input type="text"  name='tax' id="tax" />
+</p>
+<p clas="total totalSection"><label>Total:</label> $ <input type="text"  name='total' id="total" />
+</p>
+
+<input type = "button" value = "Submit Order" onclick = "return validate()" />
+
+</form>
+</body>
+</html>
