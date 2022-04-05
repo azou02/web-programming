@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<link
 <head>
 <meta charset="utf-8">
 <title>order reciept</title>
